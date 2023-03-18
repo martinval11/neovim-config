@@ -96,12 +96,14 @@ require'nvim-treesitter.configs'.setup {
 }
 EOF
 
+color rose-pine
+
 let g:coc_global_extensions = [ 'coc-tsserver' ]
 
-let g:tokyodark_color_gamma = '0.92'
+" let g:tokyodark_color_gamma = '0.92'
 
-color tokyodark
-let g:airline_theme='minimalist'
+" color tokyodark
+ let g:airline_theme='minimalist'
 
 " EJS SYNTAX BUG FIX
 
