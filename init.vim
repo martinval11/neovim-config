@@ -36,6 +36,8 @@ set backspace=indent,eol,start
 " Speed up scrolling in Vim
 set ttyfast
 
+autocmd FileChangedShell * let v:fcs_choice = 'reload'
+
 " Coc Bug Fix
 
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
@@ -50,13 +52,21 @@ map <C-k> :tabnext<CR>
 map <C-j> :tabprevious<CR>
 map <C-s> :w<CR>
 map <C-q> :q<CR>
-map <C-r> :Files<CR>
+map <C-r> :source ~/.config/nvim/mountain.vim<CR>
+"map <C-r> :Files<CR>
 map <C-f> /
-map <C-b> :NERDTreeToggle<CR>
+map <C-b> :NERDTree<CR>
 map <C-g> :FloatermNew<CR>
 map <C-z> :undo<CR>
 map <C-y> :redo<CR>
-map <C-I> :Prettier<CR>
+map <Tab> :Prettier<CR>
+
+" Testing
+map <A-b> :lua require'dap'.toggle_breakpoint()<CR>
+map <A-c> :lua require'dap'.continue()<CR>
+map <A-o> :lua require'dap'.step_over()<CR>
+map <A-i> :lua require'dap'.step_into()<CR>
+map <A-p> :lua require'dap'.repl.open()<CR>
 
 " PLUGINS
 
@@ -69,6 +79,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'yggdroot/indentline'
 Plug 'raimondi/delimitmate'
 Plug 'neoclide/coc.nvim'
+Plug 'Exafunction/codeium.vim'
 Plug 'voldikss/vim-floaterm'
 Plug 'mg979/vim-visual-multi'
 Plug 'ryanoasis/vim-devicons'
@@ -76,16 +87,16 @@ Plug 'mxw/vim-jsx'
 Plug 'sheerun/vim-polyglot'
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'prettier/vim-prettier'
-Plug 'tiagovla/tokyodark.nvim'
 Plug 'vim-airline/vim-airline'
 Plug 'spolu/dwm.vim'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'codota/tabnine-nvim', { 'do': './dl_binaries.sh' }
 Plug 'tpope/vim-surround'
 Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
 Plug 'eslint/eslint'
-Plug 'wuelnerdotexe/vim-astro'
+Plug 'mfussenegger/nvim-dap'
 call plug#end()
+
+nmap <C-d> <Plug>VimVimspectorToggleBreakpoint
 
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
@@ -96,7 +107,8 @@ require'nvim-treesitter.configs'.setup {
 }
 EOF
 
-color rose-pine
+" color rose-pine
+source ~/.config/nvim/mountain.vim
 
 let g:coc_global_extensions = [ 'coc-tsserver' ]
 
