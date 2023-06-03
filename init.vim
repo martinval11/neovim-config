@@ -1,4 +1,4 @@
-set number relativenumber
+set number rnu
 set colorcolumn=130
 set laststatus=0
 set smartindent
@@ -61,13 +61,6 @@ map <C-z> :undo<CR>
 map <C-y> :redo<CR>
 map <Tab> :Prettier<CR>
 
-" Testing
-map <A-b> :lua require'dap'.toggle_breakpoint()<CR>
-map <A-c> :lua require'dap'.continue()<CR>
-map <A-o> :lua require'dap'.step_over()<CR>
-map <A-i> :lua require'dap'.step_into()<CR>
-map <A-p> :lua require'dap'.repl.open()<CR>
-
 " PLUGINS
 
 call plug#begin('~/.vim/plugged')
@@ -115,7 +108,11 @@ let g:coc_global_extensions = [ 'coc-tsserver' ]
 " let g:tokyodark_color_gamma = '0.92'
 
 " color tokyodark
- let g:airline_theme='minimalist'
+
+let g:airline_theme='minimalist'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = ''
 
 " EJS SYNTAX BUG FIX
 
