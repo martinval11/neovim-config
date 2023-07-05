@@ -19,28 +19,17 @@ set noswapfile
 set nobackup
 set cursorline
 set encoding=UTF-8
-set splitbelow
-set splitright
 set background=dark
-set autochdir
-syntax enable
+syntax on
 filetype on
 filetype indent on
 filetype plugin on
-
-set matchpairs+=<:>
-" Display 5 lines above/below the cursor when scrolling with a mouse.
-set scrolloff=5
-" Fixes common backspace problems
 set backspace=indent,eol,start
-" Speed up scrolling in Vim
 set ttyfast
 
 autocmd FileChangedShell * let v:fcs_choice = 'reload'
 
-" Coc Bug Fix
-
-inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
+imap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
 
 " KEYBINDINGS
 
@@ -48,15 +37,12 @@ imap ii <Esc>
 
 map <C-t> :tabnew<CR>
 map <C-w> :tabclose<CR>
-map <C-k> :tabnext<CR>
-map <C-j> :tabprevious<CR>
+map <A-n> :tabnext<CR>
+map <A-p> :tabprevious<CR>
 map <C-s> :w<CR>
 map <C-q> :q<CR>
-map <C-r> :source ~/.config/nvim/mountain.vim<CR>
-"map <C-r> :Files<CR>
 map <C-f> /
-map <C-b> :NERDTree<CR>
-map <C-g> :FloatermNew<CR>
+map <C-g> :ter<CR> 
 map <C-z> :undo<CR>
 map <C-y> :redo<CR>
 map <Tab> :Prettier<CR>
@@ -64,32 +50,22 @@ map <Tab> :Prettier<CR>
 " PLUGINS
 
 call plug#begin('~/.vim/plugged')
-Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/syntastic'
 Plug 'kien/ctrlp.vim'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
 Plug 'yggdroot/indentline'
 Plug 'raimondi/delimitmate'
 Plug 'neoclide/coc.nvim'
 Plug 'Exafunction/codeium.vim'
-Plug 'voldikss/vim-floaterm'
 Plug 'mg979/vim-visual-multi'
-Plug 'ryanoasis/vim-devicons'
 Plug 'mxw/vim-jsx'
 Plug 'sheerun/vim-polyglot'
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'prettier/vim-prettier'
 Plug 'vim-airline/vim-airline'
-Plug 'spolu/dwm.vim'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'tpope/vim-surround'
 Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
 Plug 'eslint/eslint'
-Plug 'mfussenegger/nvim-dap'
 call plug#end()
-
-nmap <C-d> <Plug>VimVimspectorToggleBreakpoint
 
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
@@ -100,40 +76,12 @@ require'nvim-treesitter.configs'.setup {
 }
 EOF
 
-" color rose-pine
 source ~/.config/nvim/mountain.vim
 
 let g:coc_global_extensions = [ 'coc-tsserver' ]
 
-" let g:tokyodark_color_gamma = '0.92'
-
-" color tokyodark
-
-let g:airline_theme='minimalist'
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = ''
-
-" EJS SYNTAX BUG FIX
-
-au BufNewFile,BufRead *.ejs set filetype=html
-
-" STATUSBAR
-
-if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
-endif
-
-" powerline symbols
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
-let g:airline_symbols.branch = ''
-let g:airline_symbols.readonly = ''
-let g:airline_symbols.linenr = '☰'
-let g:airline_symbols.maxlinenr = ''
-let g:airline_symbols.dirty='⚡'
+let g:airline_theme='base16'
+let g:airline_powerline_fonts = 1
 
 " OTHER
 
@@ -141,5 +89,5 @@ let NERDTreeQuitOnOpen=1
 let NERDTreeShowHidden=1
 
 let g:astro_typescript = 'enable'
-" let g:astro_stylus = 'enable'
+let g:astro_stylus = 'enable'
 

@@ -1,8 +1,8 @@
 set termguicolors
-let s:gui00        = "000000"
+let s:gui00        = "06070A"
 let g:base16_gui00 = "0f0f0f"
 
-let s:gui01        = "151515"
+let s:gui01        = "0B0E18"
 let g:base16_gui01 = "191919"
 
 let s:gui02        = "151515"
@@ -11,7 +11,7 @@ let g:base16_gui02 = "262626"
 let s:gui03        = "4c4c4c"
 let g:base16_gui03 = "4c4c4c"
 
-let s:gui04        = "ac8a8c"
+let s:gui04        = "71989A"
 let g:base16_gui04 = "ac8a8c"
 
 let s:gui05        = "f0f0f0"
@@ -22,17 +22,18 @@ let g:base16_gui06 = "e7e7e7"
 
 let s:gui07        = "f0f0f0"
 let g:base16_gui07 = "f0f0f0"
+
 " red
-let s:gui08        = "A17EC4"
+let s:gui08        = "7DA9AB"
 let g:base16_gui08 = "ac8a8c"
 " orange
-let s:gui09        = "D16271"
+let s:gui09        = "9681C2"
 let g:base16_gui09 = "ceb188"
 " yellow
 let s:gui0A        = "718FC8"
 let g:base16_gui0A = "aca98a"
 " green
-let s:gui0B        = "68B999"
+let s:gui0B        = "6D86A4"
 let g:base16_gui0B = "8aac8b"
 " cyan
 let s:gui0C        = "93CEE9"
@@ -41,7 +42,7 @@ let g:base16_gui0C = "8aabac"
 let s:gui0D        = "8f8aac"
 let g:base16_gui0D = "8f8aac"
 " magenta
-let s:gui0E        = "ac8aac"
+let s:gui0E        = "7DA9AB"
 let g:base16_gui0E = "ac8aac"
 " dark red
 let s:gui0F        = "ac8a8c"
